@@ -1,0 +1,132 @@
+:root {
+  --bg: #07121a;
+  --bg-soft: #0c1d29;
+  --card: rgba(11, 35, 49, 0.68);
+  --line: rgba(137, 214, 198, 0.28);
+  --text: #e8f6f2;
+  --subtext: #aad6ca;
+  --tech: #62d7ff;
+  --nature: #7fffb3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(107, 216, 155, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(58, 156, 255, 0.2), transparent 40%),
+    linear-gradient(170deg, #05090f 0%, var(--bg) 45%, #05101a 100%);
+  min-height: 100vh;
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(130, 255, 205, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(130, 255, 205, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5vw;
+  backdrop-filter: blur(8px);
+  background: rgba(4, 17, 24, 0.6);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar nav { display: flex; gap: 1.2rem; }
+.navbar a { color: var(--subtext); text-decoration: none; font-weight: 500; }
+.brand { font-weight: 800; letter-spacing: 0.4px; }
+.cta {
+  background: linear-gradient(120deg, var(--nature), var(--tech));
+  border: 0;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: 3rem auto 2rem;
+  padding: 0 5vw;
+}
+.chip {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--nature);
+}
+.hero h1 { font-size: clamp(2rem, 4vw, 3.8rem); margin-bottom: 0.8rem; }
+.hero h1 span {
+  background: linear-gradient(90deg, var(--nature), var(--tech));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p { color: var(--subtext); max-width: 750px; }
+.hero-actions { display: flex; gap: 0.9rem; margin-top: 1.3rem; }
+.hero-actions a { text-decoration: none; border-radius: 10px; padding: 0.75rem 1.1rem; font-weight: 700; }
+.primary { background: linear-gradient(120deg, #56efab, #4fc8ff); color: #041116; }
+.ghost { border: 1px solid var(--line); color: var(--text); }
+
+.products-grid {
+  max-width: 1300px;
+  margin: 1.5rem auto;
+  padding: 0 5vw;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(17, 58, 70, 0.22);
+}
+.product-card h3 { margin: 0 0 0.6rem; }
+.product-card p { margin: 0; color: var(--subtext); }
+.product-card span {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--nature);
+}
+
+.categories, footer {
+  max-width: 1300px;
+  margin: 2.5rem auto;
+  padding: 0 5vw;
+}
+.categories div { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.categories span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  color: var(--subtext);
+}
+footer { color: #8cb0aa; padding-bottom: 2rem; }
+
+@media (max-width: 1100px) {
+  .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .navbar { flex-wrap: wrap; gap: 0.8rem; }
+  .navbar nav { width: 100%; justify-content: space-between; }
+  .products-grid { grid-template-columns: 1fr; }
+}
